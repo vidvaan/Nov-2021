@@ -7,15 +7,15 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:annotation-config />
+	<context:property-placeholder
+		location="classpath:db.properties" />
 	<context:component-scan
 		base-package="com.createiq"></context:component-scan>
-
-
-
-	<!-- <bean id="employeeDAO" class="com.createiq.dao.EmployeeDAOImpl"> </bean> 
-		<bean id="employeeService" class="com.createiq.service.EmployeeServiceImpl"> 
-		<property name="employeeDAO" ref="employeeDAO"></property> </bean> <bean 
-		id="employeeController" class="com.createiq.controller.EmployeeController"> 
-		<constructor-arg ref="employeeService"></constructor-arg> </bean> -->
-
+	<bean class="org.apache.commons.dbcp.BasicDataSource"
+		id="dataSource">
+		<property name="url" value="${url}"></property>
+		<property name="driverClassName" value="${driver}"></property>
+		<property name="username" value="${uname}"></property>
+		<property name="password" value="${pass}"></property>
+	</bean>
 </beans>

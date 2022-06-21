@@ -2,6 +2,7 @@ package com.createiq.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.createiq.config.SpringConfig;
 import com.createiq.controller.EmployeeController;
 import com.createiq.model.Employee;
@@ -15,9 +16,11 @@ public class SaveEmployeeTest {
 		
 		EmployeeController employeeController = (EmployeeController) applicationContext.getBean("empController");
 
-		Employee employee = new Employee(1001, "Balaji", 20000.00);
+		Employee employee = new Employee(1004, "Rani", 20000.00);
 
 		employeeController.save(employee);
+		
+		System.out.println("Success");
 	}
 
 }
