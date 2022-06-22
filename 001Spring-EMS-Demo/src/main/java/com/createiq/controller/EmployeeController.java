@@ -17,5 +17,11 @@ public class EmployeeController {
 		employeeService.save(employee);
 		
 	}
+	
+	public void update(Employee employee) {
+		System.out.println("Employee Controller Update Called :");
+		employeeService.update(employee);
+		
+	}
 
 }

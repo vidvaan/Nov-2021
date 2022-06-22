@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.createiq.controller.EmployeeController;
 import com.createiq.model.Employee;
 
-public class SaveEmployeeTest {
+public class UpdateEmployeeTest {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
@@ -17,7 +17,7 @@ public class SaveEmployeeTest {
 
 		Employee employee = new Employee(1005, "Mahesh", 20000.00);
 
-		employeeController.save(employee);
+		employeeController.update(employee);
 		
 		System.out.println("Success");
 	}

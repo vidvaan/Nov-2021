@@ -15,4 +15,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeDAO.save(employee);
 	}
 
+	public void update(Employee employee) {
+		employeeDAO.update(employee);
+	}
+
 }
