@@ -1,5 +1,7 @@
 package com.createiq.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public void update(Employee employee) {
 		employeeDAO.update(employee);
+	}
+
+	@Override
+	public List<Employee> findAll() {
+		
+		return employeeDAO.findAll();
 	}
 
 }

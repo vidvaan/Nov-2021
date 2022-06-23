@@ -1,5 +1,7 @@
 package com.createiq.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,6 +24,10 @@ public class EmployeeController {
 		System.out.println("Employee Controller Update Called :");
 		employeeService.update(employee);
 		
+	}
+	
+	public List<Employee> findAll(){
+		return employeeService.findAll();
 	}
 
 }
