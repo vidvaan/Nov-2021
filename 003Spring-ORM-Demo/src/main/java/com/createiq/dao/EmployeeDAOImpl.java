@@ -2,6 +2,7 @@ package com.createiq.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -31,8 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	public List<Employee> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return  (List<Employee>) hibernateTemplate.find("from Employee");
 	}
 
 	
