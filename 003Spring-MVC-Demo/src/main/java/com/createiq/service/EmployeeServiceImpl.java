@@ -25,4 +25,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDAO.findAll();
 	}
 
+	public Employee findById(Integer eid) {
+		return employeeDAO.findById(eid);
+	}
+
+	public void deleteByEid(Integer eid) {
+		employeeDAO.deleteById(eid);
+	}
+
 }

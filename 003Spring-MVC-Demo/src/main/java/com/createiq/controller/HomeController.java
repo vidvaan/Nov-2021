@@ -15,8 +15,8 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/hello")
-	public ModelAndView sayHello(@RequestParam("name") String name) {
-		return new ModelAndView("hello","name",name);
+	public ModelAndView sayHello() {
+		return new ModelAndView("hello");
 		
 	}
 	

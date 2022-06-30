@@ -5,8 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $.ajax({url: "./rest/emp/findAll", success: function(result){
+      console.log(result);
+      for(var i=0;i<result.length;i++){
+    	  $("#result").append("<b>"+result[i].eid+" - "+result[i].ename+" - "+result[i].esal+"</b><br>");
+      }
+    }});
+ 
+});
+</script>
 </head>
 <body>
-<h1>Hello ${name}</h1>
+<h1>Call Rest API Using AJAX  ---  </h1>
+<div id="result">
+     
+</div>
 </body>
 </html>
