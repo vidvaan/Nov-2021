@@ -12,15 +12,10 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class DatasourceDemo {
 	public static void main(String[] args) {
 		
-<<<<<<< Upstream, based on branch 'master' of https://github.com/vidvaan/Nov-2021.git
-		System.out.println("<============== Basic Data Source ===============>");
-		System.out.println("<============== Test Data Source ===============>");
-		System.out.println("<============== Test Data Source ===============>");
-		System.out.println("<============== Test Data Source ===============>");
-=======
+
 		//System.out.println("<============== Basic Data Source ===============>");
 		System.out.println("<============== Basic Data Source Test ===============>");
->>>>>>> bbb7940 Test Changes
+
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/emedico");
