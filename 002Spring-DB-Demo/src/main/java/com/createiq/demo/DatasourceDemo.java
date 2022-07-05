@@ -12,10 +12,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class DatasourceDemo {
 	public static void main(String[] args) {
 		
-
 		//System.out.println("<============== Basic Data Source ===============>");
 		System.out.println("<============== Basic Data Source Test ===============>");
-
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/emedico");
