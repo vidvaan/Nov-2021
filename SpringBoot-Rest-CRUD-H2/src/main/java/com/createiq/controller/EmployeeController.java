@@ -22,9 +22,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	@Value("${createiq.appname}")
-	private String appname;
-	
 	
 	
 	
@@ -33,10 +30,7 @@ public class EmployeeController {
 		return employeeService.findAll();
 	}
 	
-	@GetMapping("/getAppName")
-	public String getAppName(){
-		return appname;
-	}
+	
 	
 	@GetMapping("/findById/{eid}")
 	public Employee findById(@PathVariable Integer eid){
