@@ -2,8 +2,12 @@ package com.createiq.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,27 +28,30 @@ public class EmployeeController {
 	
 	
 	
-	
 	@GetMapping("/findAll")
-	public List<Employee> findAll(){
-		return employeeService.findAll();
+	public ResponseEntity<List<Employee>> findAll(){
+		return new ResponseEntity<List<Employee>>(employeeService.findAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/findByEname/{ename}")
-	public List<Employee> findByEname(@PathVariable String ename){
-		return employeeService.findByEname(ename);
+	public ResponseEntity<List<Employee>> findByEname(@PathVariable String ename){
+		return new ResponseEntity<List<Employee>>(employeeService.findByEname(ename), HttpStatus.OK);
 	}
 	
 	
 	
 	@GetMapping("/findById/{eid}")
-	public Employee findById(@PathVariable Integer eid){
-		return employeeService.findById(eid);
+	public ResponseEntity findById(@PathVariable Integer eid){
+		 Employee employee = employeeService.findById(eid);
+		 if(employee == null) {
+			 return new ResponseEntity("Record not Found in DB ",HttpStatus.NOT_FOUND);
+		 }
+		return new ResponseEntity(employee, HttpStatus.OK);
 	}
 	
 	
 	@PostMapping("/add")
-	public String save(@RequestBody Employee employee){
+	public String save(@Valid @RequestBody Employee employee){
 		System.out.println(employee);
 		employeeService.save(employee);
 		return "Inserted fully Success";
