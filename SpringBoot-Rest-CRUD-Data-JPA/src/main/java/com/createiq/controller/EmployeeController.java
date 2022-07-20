@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.createiq.model.Employee;
@@ -22,14 +25,19 @@ import com.createiq.service.EmployeeService;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping("/employee")
 public class EmployeeController {
+	
+	private static Logger log =LoggerFactory.getLogger(EmployeeController.class);
+	
 	@Autowired
 	private EmployeeService employeeService;
 	
 	
 	
-	@GetMapping("/findAll")
+	@GetMapping(path = "/findAll")
 	public ResponseEntity<List<Employee>> findAll(){
+		log.debug("Find All Msg ");
 		return new ResponseEntity<List<Employee>>(employeeService.findAll(), HttpStatus.OK);
 	}
 	
@@ -40,7 +48,7 @@ public class EmployeeController {
 	
 	
 	
-	@GetMapping("/findById/{eid}")
+	@GetMapping(path = "/findById/{eid}",produces= {"application/json","application/xml"})
 	public ResponseEntity findById(@PathVariable Integer eid){
 		 Employee employee = employeeService.findById(eid);
 		 if(employee == null) {
