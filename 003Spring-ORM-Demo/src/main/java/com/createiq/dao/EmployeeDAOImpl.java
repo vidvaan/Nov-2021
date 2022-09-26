@@ -18,23 +18,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	public void save(Employee employee) {
 		hibernateTemplate.save(employee);
-		
+
 	}
 
 	public void update(Employee employee) {
-		// TODO Auto-generated method stub
-		
+		hibernateTemplate.update(employee);
+
 	}
 
 	public void deleteById(Integer eid) {
-		// TODO Auto-generated method stub
-		
+		Employee employee = new Employee();
+		employee.setEid(eid);
+		hibernateTemplate.delete(employee);
 	}
 
 	public List<Employee> findAll() {
-		return  (List<Employee>) hibernateTemplate.find("from Employee");
+		return (List<Employee>) hibernateTemplate.find("from Employee");
 	}
-
-	
 
 }
